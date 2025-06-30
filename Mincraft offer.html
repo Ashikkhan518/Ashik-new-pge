@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft অফার | আপনার ডিজিটাল সলিউশন</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles & Reset - Dark Theme */
+        :root {
+            --primary-color: #4CAF50; /* Minecraft Green */
+            --primary-dark: #388E3C; /* Darker Green */
+            --secondary-color: #212121; /* Very dark gray */
+            --bg-dark: #121212; /* Main dark background */
+            --card-bg: #1e1e1e; /* Slightly lighter dark for cards */
+            --text-light: #e0e0e0; /* Light gray for main text */
+            --text-muted: #a0a0a0; /* Muted gray for subtitles */
+            --border-color: #333333; /* Dark border color */
+            --shadow-light: rgba(0, 0, 0, 0.2);
+            --shadow-medium: rgba(0, 0, 0, 0.4);
+            --minecraft-dirt: #795548; /* Brown for section separator */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        /* Navbar (Same as before, adjusted colors for theme) */
+        .navbar {
+            background-color: var(--secondary-color);
+            padding: 15px 25px;
+            box-shadow: 0 2px 10px var(--shadow-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .left-options,
+        .navbar .right-options {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .brand {
+            color: var(--primary-color);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+        .navbar .brand:hover {
+            color: var(--text-light);
+        }
+
+        .navbar .nav-icon-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            touch-action: manipulation;
+        }
+        .navbar .nav-icon-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--primary-color);
+        }
+
+        .navbar .login-btn {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 0.95em;
+            touch-action: manipulation;
+            white-space: nowrap;
+        }
+        .navbar .login-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: url('https://via.placeholder.com/1600x600/1a1a1a/4CAF50?text=Minecraft+Adventures') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--minecraft-dirt);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.8em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            animation: text-pop-in 1.2s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            animation: fadeIn 1.5s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin: 0 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            animation: slideInUp 1s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            text-align: center;
+            flex-grow: 1;
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        /* Section Header Styles */
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+        }
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-dark);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.1em;
+            color: var(--text-muted);
+        }
+
+        /* Service Grid - 2 Columns (for main offers) */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 columns on larger screens */
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Service Item Card */
+        .service-item {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px var(--shadow-light);
+            opacity: 0; /* Hidden initially for JS animation */
+            transform: translateY(20px);
+        }
+
+        .service-item.show {
+            animation: fade-in-up 0.7s ease-out forwards;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 12px 30px var(--shadow-medium);
+            border-color: var(--primary-color);
+        }
+
+        .service-item h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-item h3 i {
+            color: var(--primary-color);
+            margin-right: 15px;
+            font-size: 1.2em;
+            width: 35px;
+            text-align: center;
+        }
+
+        .service-item ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .service-item ul li {
+            font-size: 1.05em;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .service-item ul li i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .service-item .price {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-item .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1em;
+            touch-action: manipulation;
+        }
+
+        .service-item .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Key Features / Backup Options Section */
+        .key-features {
+            background-color: var(--secondary-color);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 60px;
+            box-shadow: 0 8px 25px var(--shadow-medium);
+        }
+
+        .key-features h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        .key-features h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-dark);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .feature-item.show {
+            animation: fade-in-up 0.7s ease-out forwards;
+        }
+        .feature-item:nth-child(2).show { animation-delay: 0.2s; }
+        .feature-item:nth-child(3).show { animation-delay: 0.4s; }
+
+        .feature-item i {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4em;
+            color: var(--text-light);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 0.95em;
+            color: var(--text-muted);
+        }
+
+        /* Footer Styles (Same as before) */
+        .footer {
+            margin-top: 60px;
+            padding: 25px;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            text-align: center;
+            font-size: 0.95em;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer p {
+            margin: 5px 0;
+            color: var(--text-muted);
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes text-pop-in {
+            0% { opacity: 0; transform: scale(0.8); }
+            70% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design Adjustments */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3em;
+            }
+            .hero-content p {
+                font-size: 1.1em;
+            }
+            .section-header h2 {
+                font-size: 2.2em;
+            }
+            .service-item h3 {
+                font-size: 1.7em;
+            }
+            .service-item .price {
+                font-size: 1.6em;
+            }
+            .feature-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .brand {
+                font-size: 1.3em;
+                margin: 0;
+            }
+            .navbar .login-btn {
+                padding: 8px 12px;
+                font-size: 0.85em;
+            }
+            .hero-section {
+                padding: 60px 15px;
+            }
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+            .hero-content p {
+                font-size: 1em;
+            }
+            .hero-buttons .cta-button {
+                padding: 12px 20px;
+                font-size: 0.9em;
+                margin: 0 5px 15px;
+                display: block; /* Stack buttons on small screens */
+            }
+            .container {
+                padding: 20px;
+            }
+            .section-header h2 {
+                font-size: 1.8em;
+            }
+            .section-header p {
+                font-size: 0.9em;
+            }
+            .service-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+            }
+            .service-item {
+                padding: 25px;
+            }
+            .service-item h3 {
+                font-size: 1.5em;
+            }
+            .service-item ul li {
+                font-size: 1em;
+            }
+            .service-item .price {
+                font-size: 1.4em;
+            }
+            .key-features {
+                padding: 30px 20px;
+            }
+            .key-features h2 {
+                font-size: 1.8em;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 10px 10px;
+            }
+            .navbar .brand {
+                font-size: 1.1em;
+            }
+            .hero-section {
+                padding: 40px 10px;
+            }
+            .hero-content h1 {
+                font-size: 2em;
+            }
+            .hero-content p {
+                font-size: 0.9em;
+            }
+            .hero-buttons .cta-button {
+                padding: 10px 15px;
+                font-size: 0.85em;
+            }
+            .container {
+                padding: 15px;
+            }
+            .section-header h2 {
+                font-size: 1.6em;
+            }
+            .service-item h3 {
+                font-size: 1.3em;
+            }
+            .service-item .price {
+                font-size: 1.2em;
+            }
+            .feature-item i {
+                font-size: 2em;
+            }
+            .feature-item h3 {
+                font-size: 1.2em;
+            }
+            .feature-item p {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left-options">
+            <button class="nav-icon-btn" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <a href="#" class="brand">আপনার ডিজিটাল সলিউশন</a>
+        <div class="right-options">
+            <a href="#" class="login-btn">লগইন / রেজিস্টার</a>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Minecraft এর জগৎ আবিষ্কার করুন!</h1>
+            <p>আপনার পছন্দের Minecraft এডিশন বেছে নিন এবং সীমাহীন অ্যাডভেঞ্চারে ঝাঁপিয়ে পড়ুন। সেরা অফার শুধুমাত্র আপনার জন্য!</p>
+            <div class="hero-buttons">
+                <a href="#offers" class="cta-button">অফারসমূহ দেখুন <i class="fas fa-arrow-down"></i></a>
+                <a href="#" class="cta-button">যোগাযোগ করুন <i class="fas fa-comment-dots"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section-header">
+            <h2 id="offers">আমাদের Minecraft অফারসমূহ</h2>
+            <p>আপনার গেমিং স্টাইল অনুযায়ী সেরা প্ল্যানটি বেছে নিন।</p>
+        </div>
+
+        <div class="service-grid">
+            <div class="service-item">
+                <h3><i class="fas fa-mobile-alt"></i> Minecraft Pocket Edition</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> অফিশিয়াল অ্যাকাউন্ট</li>
+                    <li><i class="fas fa-check-circle"></i> যেকোনো ডিভাইসে অ্যাক্সেস (মোবাইল/ট্যাবলেট)</li>
+                    <li><i class="fas fa-check-circle"></i> অনলাইন মাল্টিপ্লেয়ার সাপোর্ট</li>
+                    <li><i class="fas fa-check-circle"></i> লাইফটাইম অ্যাক্সেস</li>
+                </ul>
+                <div class="price">শুরু ₹499</div>
+                <a href="#" class="cta-button">অর্ডার করুন PE</a>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-desktop"></i> Minecraft Java Edition</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> অফিশিয়াল Mojang অ্যাকাউন্ট</li>
+                    <li><i class="fas fa-check-circle"></i> PC/Mac/Linux সাপোর্ট</li>
+                    <li><i class="fas fa-check-circle"></i> Mod এবং সার্ভার কাস্টমাইজেশন</li>
+                    <li><i class="fas fa-check-circle"></i> লাইফটাইম অ্যাক্সেস</li>
+                </ul>
+                <div class="price">শুরু ₹899</div>
+                <a href="#" class="cta-button">অর্ডার করুন Java</a>
+            </div>
+        </div>
+
+        <div class="key-features">
+            <h2>অতিরিক্ত সুবিধা ও ব্যাকআপ অপশন</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Gmail ব্যাকআপ সহ</h3>
+                    <p>আপনার অ্যাকাউন্টের সাথে সম্পূর্ণ অ্যাক্সেস সহ একটি সুরক্ষিত Gmail অ্যাকাউন্ট দেওয়া হবে।</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-key"></i>
+                    <h3>পাসওয়ার্ড পরিবর্তন সুবিধা</h3>
+                    <p>আপনি যেকোনো সময় আপনার অ্যাকাউন্টের পাসওয়ার্ড পরিবর্তন করতে পারবেন, সম্পূর্ণ নিয়ন্ত্রণ আপনার হাতে।</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>১০০% নিরাপদ ও সুরক্ষিত</h3>
+                    <p>আমরা আপনার অ্যাকাউন্টের নিরাপত্তা নিশ্চিত করি। কোনো তথ্য ফাঁস হওয়ার ভয় নেই।</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 আপনার ডিজিটাল সলিউশন। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p>যোগাযোগ: <a href="mailto:info@yourstore.com">info@yourstore.com</a> | <a href="tel:+8801XXXXXXXXX">+8801XXXXXXXXX</a></p>
+        <p>আমাদের সাথে যুক্ত থাকুন: 
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </p>
+    </div>
+
+    <script>
+        // JavaScript for scroll-based fade-in animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const serviceItems = document.querySelectorAll('.service-item');
+            const featureItems = document.querySelectorAll('.feature-item');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, {
+                threshold: 0.2 // Trigger when 20% of the item is visible
+            });
+
+            serviceItems.forEach(item => {
+                observer.observe(item);
+            });
+            featureItems.forEach(item => {
+                observer.observe(item);
+            });
+
+            // Optional: Implement the functionality for the "three-dot" menu button
+            // const menuToggle = document.getElementById('menuToggle');
+            // menuToggle.addEventListener('click', () => {
+            //     alert('Menu button clicked! You can add a sidebar or dropdown menu here.');
+            // });
+        });
+    </script>
+</body>
+</html>
