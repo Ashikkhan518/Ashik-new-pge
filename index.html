@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>আপনার ডিজিটাল সলিউশন - এক্সক্লুসিভ অফারসমূহ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles & Reset - Dark Theme */
+        :root {
+            --primary-color: #00bcd4; /* Cyan/Aqua - for accents, buttons, highlights */
+            --primary-dark: #00838f; /* Darker Cyan */
+            --secondary-color: #212121; /* Very dark gray for deep elements like navbar, footer */
+            --bg-dark: #121212; /* Main dark background */
+            --card-bg: #1e1e1e; /* Slightly lighter dark for cards */
+            --text-light: #e0e0e0; /* Light gray for main text */
+            --text-muted: #a0a0a0; /* Muted gray for subtitles, secondary info */
+            --border-color: #333333; /* Dark border color */
+            --shadow-light: rgba(0, 0, 0, 0.2);
+            --shadow-medium: rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-dark); /* Dark background */
+            color: var(--text-light);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--secondary-color);
+            padding: 15px 25px; /* Added horizontal padding */
+            box-shadow: 0 2px 10px var(--shadow-light);
+            display: flex; /* Use flexbox for alignment */
+            justify-content: space-between; /* Space out items */
+            align-items: center; /* Vertically align items */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .left-options,
+        .navbar .right-options {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .brand {
+            color: var(--primary-color);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin: 0 auto; /* Center the brand if space allows */
+        }
+        .navbar .brand:hover {
+            color: var(--text-light);
+        }
+
+        .navbar .nav-icon-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            touch-action: manipulation;
+        }
+        .navbar .nav-icon-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--primary-color);
+        }
+
+        .navbar .login-btn {
+            background-color: var(--primary-color);
+            color: var(--secondary-color); /* Dark text on primary color */
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 0.95em;
+            touch-action: manipulation;
+        }
+        .navbar .login-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Carousel/Slider Styles */
+        .carousel-container {
+            width: 100%;
+            max-width: 1200px; /* Adjust as needed */
+            margin: 0 auto 40px; /* Center and add margin below */
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 25px var(--shadow-medium);
+            border-radius: 12px;
+            background-color: var(--card-bg); /* Dark background for carousel area */
+        }
+
+        .carousel-slide {
+            display: flex;
+            width: 300%; /* 3 images * 100% */
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 400px; /* Fixed height for consistency on desktop */
+            object-fit: cover; /* Cover the area, crop if necessary */
+            display: block;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+            z-index: 100;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+            touch-action: manipulation;
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-button.prev {
+            left: 15px;
+        }
+
+        .carousel-button.next {
+            right: 15px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            touch-action: manipulation;
+        }
+
+        .dot.active {
+            background-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px; /* Increased max-width for 4 columns */
+            margin: 40px auto; /* Adjust top margin for carousel */
+            padding: 30px;
+            background-color: var(--card-bg); /* Dark card background */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            text-align: center;
+            flex-grow: 1; /* Allows container to take available space */
+            animation: fade-in-up 0.8s ease-out forwards; /* Initial fade-in */
+        }
+
+        /* Header Styles */
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color); /* Header color as accent */
+            font-size: 3em; /* Larger heading */
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+            animation: text-pop-in 1s ease-out forwards;
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-dark);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        p.subtitle {
+            font-size: 1.2em; /* Larger subtitle */
+            color: var(--text-muted); /* Muted text for subtitle */
+            margin-bottom: 50px;
+            animation: text-pop-in 1s ease-out forwards;
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        /* Service Grid - 4 Columns */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 columns for large screens */
+            gap: 25px; /* Adjust gap for better spacing */
+            margin-top: 40px;
+        }
+
+        /* Service Item Card */
+        .service-item {
+            background-color: var(--secondary-color); /* Darker background for service items */
+            padding: 25px; /* Slightly reduced padding for tighter fit */
+            border-radius: 12px;
+            text-align: left;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color); /* Subtle border */
+            box-shadow: 0 4px 15px var(--shadow-light);
+            opacity: 0; /* Hidden initially for JS animation */
+            transform: translateY(20px);
+        }
+
+        .service-item.show {
+            animation: fade-in-up 0.7s ease-out forwards; /* Fade-in on scroll */
+        }
+
+        .service-item:hover {
+            transform: translateY(-12px) scale(1.02); /* More pronounced lift and slight scale */
+            box-shadow: 0 15px 35px var(--shadow-medium);
+            border-color: var(--primary-color); /* Highlight border on hover */
+        }
+
+        .service-item h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color); /* Accent color for service titles */
+            font-size: 1.5em; /* Adjusted for 4 columns */
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            text-transform: capitalize;
+        }
+
+        .service-item h3 i { /* Font Awesome Icon style */
+            color: var(--primary-color);
+            margin-right: 10px; /* Adjusted for tighter fit */
+            font-size: 1.2em; /* Adjusted for 4 columns */
+            width: 28px; /* Fixed width for consistent alignment */
+            text-align: center;
+        }
+
+        .service-item p {
+            font-size: 0.95em; /* Slightly smaller text for 4 columns */
+            color: var(--text-light);
+            margin-bottom: 15px; /* Adjusted margin */
+        }
+
+        .service-item .price {
+            font-size: 1.4em; /* Adjusted for 4 columns */
+            color: var(--primary-color); /* Accent color for price */
+            font-weight: 700;
+            margin-bottom: 12px; /* Adjusted margin */
+            display: block; /* Ensure price takes full width */
+        }
+
+        .service-item .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--secondary-color); /* Dark text on primary color */
+            padding: 10px 20px; /* Slightly smaller padding for button */
+            border-radius: 8px; /* More rounded corners */
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 0.95em;
+            touch-action: manipulation;
+        }
+
+        .service-item .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px); /* Slight lift on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Footer Styles */
+        .footer {
+            margin-top: 60px;
+            padding: 25px;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            text-align: center;
+            font-size: 0.95em;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer p {
+            margin: 5px 0;
+            color: var(--text-muted); /* Muted text for footer */
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes text-pop-in {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            70% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design Adjustments */
+        /* Extra Large screens (e.g., larger desktops) */
+        @media (min-width: 1400px) {
+            .container, .carousel-container {
+                max-width: 1300px;
+            }
+            .service-grid {
+                grid-template-columns: repeat(4, 1fr); /* Ensure 4 columns explicitly */
+                gap: 30px;
+            }
+        }
+
+        /* Large screens (standard desktops) */
+        @media (max-width: 1200px) {
+            .container, .carousel-container {
+                max-width: 95%; /* More adaptive width */
+            }
+            .service-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjust min-width for slight reduction */
+                gap: 20px; /* Slightly reduced gap */
+            }
+            .service-item {
+                padding: 22px; /* Slightly reduced padding */
+            }
+            .service-item h3 {
+                font-size: 1.4em;
+            }
+            .service-item p {
+                font-size: 0.9em;
+            }
+            .service-item .price {
+                font-size: 1.3em;
+            }
+            .service-item .cta-button {
+                padding: 9px 18px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Medium screens (tablets, smaller laptops) */
+        @media (max-width: 992px) {
+            .navbar .brand {
+                font-size: 1.6em; /* Slightly smaller on tablets */
+            }
+            .container {
+                max-width: 90%;
+                margin: 30px auto;
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            p.subtitle {
+                font-size: 1.1em;
+                margin-bottom: 40px;
+            }
+            .service-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Typically 2 or 3 columns on tablets */
+                gap: 25px;
+            }
+            .service-item {
+                padding: 25px;
+            }
+            .carousel-slide img {
+                height: 350px; /* Adjust height for tablets */
+            }
+        }
+
+        /* Small screens (larger phones) */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px; /* Smaller padding for mobile nav */
+            }
+            .navbar .brand {
+                font-size: 1.3em; /* Smaller brand text on mobile */
+                margin: 0; /* Remove auto margin to allow left/right items space */
+            }
+            .navbar .nav-icon-btn,
+            .navbar .login-btn {
+                font-size: 0.9em; /* Smaller button text */
+                padding: 8px 12px; /* Smaller button padding */
+            }
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            p.subtitle {
+                font-size: 0.95em;
+                margin-bottom: 30px;
+            }
+            .service-grid {
+                grid-template-columns: 1fr; /* Single column on mobile for optimal readability */
+                gap: 20px;
+            }
+            .service-item {
+                padding: 20px;
+            }
+            .service-item h3 {
+                font-size: 1.3em;
+            }
+            .service-item p {
+                font-size: 0.9em;
+            }
+            .service-item .price {
+                font-size: 1.2em;
+            }
+            .carousel-slide img {
+                height: 250px; /* Adjust height for mobile */
+            }
+            .carousel-button {
+                padding: 10px;
+                font-size: 1.2em;
+            }
+            .carousel-dots {
+                bottom: 10px;
+                gap: 8px;
+            }
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        /* Extra Small screens (small phones) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.6em; /* Even smaller heading */
+            }
+            p.subtitle {
+                font-size: 0.85em;
+                margin-bottom: 20px;
+            }
+            .service-item {
+                padding: 15px;
+            }
+            .service-item h3 {
+                font-size: 1.1em;
+            }
+            .service-item p {
+                font-size: 0.8em;
+            }
+            .service-item .price {
+                font-size: 1em;
+            }
+            .service-item .cta-button {
+                padding: 7px 12px;
+                font-size: 0.8em;
+            }
+            .carousel-slide img {
+                height: 180px; /* Even smaller height for very small screens */
+            }
+            .carousel-button {
+                padding: 6px;
+                font-size: 0.9em;
+            }
+            .carousel-dots {
+                bottom: 8px;
+                gap: 6px;
+            }
+            .dot {
+                width: 8px;
+                height: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left-options">
+            <button class="nav-icon-btn" id="menuToggle">
+                <i class="fas fa-bars"></i> </button>
+        </div>
+        <a href="#" class="brand">আপনার ডিজিটাল সলিউশন</a>
+        <div class="right-options">
+            <a href="#" class="login-btn">লগইন / রেজিস্টার</a>
+        </div>
+    </nav>
+
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img src="https://via.placeholder.com/1200x400/1a1a1a/00bcd4?text=Digital+Entertainment" alt="Digital Entertainment Offers">
+            <img src="https://via.placeholder.com/1200x400/1a1a1a/00bcd4?text=Creative+Solutions" alt="Creative Solutions for You">
+            <img src="https://via.placeholder.com/1200x400/1a1a1a/00bcd4?text=Premium+Gaming+Experience" alt="Premium Gaming Experience">
+        </div>
+        <button class="carousel-button prev">&#10094;</button>
+        <button class="carousel-button next">&#10095;</button>
+        <div class="carousel-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>আমাদের এক্সক্লুসিভ ডিজিটাল অফারসমূহ</h1>
+        <p class="subtitle">আপনার বিনোদন, সৃষ্টিশীলতা, গেমিং এবং উৎপাদনশীলতার চাহিদা মেটাতে নিয়ে এসেছি সেরা সব প্রিমিয়াম প্ল্যান!</p>
+
+        <div class="service-grid">
+            <div class="service-item">
+                <h3><i class="fas fa-play-circle"></i> Crunchyroll Premium</h3>
+                <p>বিজ্ঞাপনমুক্ত পরিবেশে অ্যানিমে এবং মাঙ্গা'র বিশাল সংগ্রহ উপভোগ করুন, নতুন এপিসোড রিলিজের সাথে সাথেই!</p>
+                <div class="price">শুরু ₹99/মাস</div>
+                <a href="#" class="cta-button">বিস্তারিত ও অর্ডার করুন</a>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-cube"></i> Minecraft (Bedrock/Java)</h3>
+                <p>আপনার সৃজনশীলতা দিয়ে ভার্চুয়াল জগৎ তৈরি করুন। বেডরক বা জাভা এডিশন, আপনার পছন্দ অনুযায়ী!</p>
+                <div class="price">শুরু ₹199/মাস</div>
+                <a href="Mincraft offer.html"class="cta-button">বিস্তারিত ও অর্ডার করুন</a>
+            </div>
+            
+            <div class="service-item">
+                <h3><i class="fab fa-spotify"></i> Spotify Family / Duo</h3>
+                <p>কোটি কোটি গান বিজ্ঞাপনমুক্ত শুনুন। ফ্যামিলি বা ডুও প্ল্যান, আপনার প্রিয়জনদের সাথে শেয়ার করুন!</p>
+                <div class="price">শুরু ₹129/মাস</div>
+                <a href="#" class="cta-button">বিস্তারিত ও অর্ডার করুন</a>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-film"></i> Netflix (Shared/Private)</h3>
+                <p>হাজারো সিনেমা ও টিভি শো দেখুন আপনার পছন্দ অনুযায়ী - শেয়ার্ড অথবা প্রাইভেট অ্যাকাউন্টে, হাই-ডেফিনিশনে!</p>
+                <div class="price">শুরু ₹149/মাস</div>
+                <a href="Capcut offer.html" class="cta-button">বিস্তারিত ও অর্ডার করুন</a>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-palette"></i> Cap cut pro </h3>
+                <p>পেশাদার ডিজাইন তৈরি করুন খুব সহজে। টেমপ্লেট, স্টক ছবি এবং আরও অনেক কিছুতে আনলিমিটেড অ্যাক্সেস!</p>
+                <div class="price">শুরু ₹179/মাস</div>
+                <a href="Cap cut offer.html"class="cta-button">বিস্তারিত ও অর্ডার করুন</a>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-gamepad"></i> প্রিমিয়াম গেমিং অ্যাকাউন্টস</h3>
+                <p>জনপ্রিয় গেমসের প্রিমিয়াম অ্যাকাউন্টস এবং ইন-গেম আইটেমস - আপনার গেমিং অভিজ্ঞতাকে করুন আরও রোমাঞ্চকর!</p>
+                <div class="price">আলোচনার মাধ্যমে</div>
+                <a href="#" class="cta-button">বিস্তারিত ও অর্ডার করুন</a>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-shield-alt"></i> প্রিমিয়াম VPN সার্ভিস</h3>
+                <p>নিরাপদ ও দ্রুত ইন্টারনেট ব্রাউজিংয়ের জন্য সেরা VPN সার্ভিস। অনলাইন গোপনীয়তা এখন আপনার হাতের মুঠোয়!</p>
+                <div class="price">শুরু ₹89/মাস</div>
+                <a href="#Cap cut offer.html" class="cta-button">বিস্তারিত ও অর্ডার করুন</a>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-laptop-code"></i> সফটওয়্যার লাইসেন্স</h3>
+                <p>অফিসিয়াল সফটওয়্যার লাইসেন্স কিনুন সাশ্রয়ী মূল্যে। আপনার কাজকে করুন আরও সহজ এবং সুরক্ষিত!</p>
+                <div class="price">আলোচনার মাধ্যমে</div>
+                <a href="#" class="cta-button">বিস্তারিত ও অর্ডার করুন</a>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-pencil-alt"></i> Grammarly Premium</h3>
+                <p>আপনার লেখালেখিকে নির্ভুল ও আকর্ষণীয় করে তুলুন। গ্রামার, স্পেলিং, স্টাইল ও প্লাজিয়ারিজম চেকার!</p>
+                <div class="price">শুরু ₹109/মাস</div>
+                <a href="#" class="cta-button">বিস্তারিত ও অর্ডার করুন</a>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-bezier-curve"></i> Adobe Creative Cloud</h3>
+                <p>ফটোগ্রাফি, ভিডিও এডিটিং, গ্রাফিক ডিজাইন - Adobe-এর সেরা অ্যাপস ব্যবহার করুন সেরা মূল্যে!</p>
+                <div class="price">শুরু ₹299/মাস</div>
+                <a href="#" class="cta-button">বিস্তারিত ও অর্ডার করুন</a>
+            </div>
+            
+            <div class="service-item">
+                <h3><i class="fas fa-book-reader"></i> অনলাইন কোর্স প্ল্যাটফর্ম</h3>
+                <p>Udemy, Coursera বা Skillshare-এর মতো প্ল্যাটফর্ম থেকে আপনার পছন্দের কোর্সগুলি অ্যাক্সেস করুন!</p>
+                <div class="price">আলোচনার মাধ্যমে</div>
+                <a href="#" class="cta-button">বিস্তারিত ও অর্ডার করুন</a>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="far fa-newspaper"></i> প্রিমিয়াম নিউজ সাবস্ক্রিপশন</h3>
+                <p>সেরা আন্তর্জাতিক ও দেশীয় সংবাদপত্রের প্রিমিয়াম কন্টেন্ট উপভোগ করুন, জ্ঞানকে রাখুন আপডেটেড!</p>
+                <div class="price">শুরু ₹59/মাস</div>
+                <a href="#" class="cta-button">বিস্তারিত ও অর্ডার করুন</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 আপনার ডিজিটাল সলিউশন। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p>যোগাযোগ: <a href="mailto:info@yourstore.com">info@yourstore.com</a> | <a href="tel:+8801XXXXXXXXX">+8801XXXXXXXXX</a></p>
+        <p>আমাদের সাথে যুক্ত থাকুন: 
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </p>
+    </div>
+
+    <script>
+        // JavaScript for scroll-based fade-in animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const serviceItems = document.querySelectorAll('.service-item');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, {
+                threshold: 0.2 // Trigger when 20% of the item is visible
+            });
+
+            serviceItems.forEach(item => {
+                observer.observe(item);
+            });
+
+            // Carousel/Slider JavaScript
+            const carouselSlide = document.querySelector('.carousel-slide');
+            const carouselImages = document.querySelectorAll('.carousel-slide img');
+            const prevBtn = document.querySelector('.carousel-button.prev');
+            const nextBtn = document.querySelector('.carousel-button.next');
+            const dotsContainer = document.querySelector('.carousel-dots');
+            const dots = document.querySelectorAll('.dot');
+
+            let counter = 0;
+            const totalImages = carouselImages.length;
+            let slideInterval;
+
+            // Function to get current slide width reliably
+            const getSlideWidth = () => carouselImages[0].clientWidth;
+
+            function updateCarousel() {
+                carouselSlide.style.transform = 'translateX(' + (-getSlideWidth() * counter) + 'px)';
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[counter].classList.add('active');
+            }
+
+            function nextSlide() {
+                counter++;
+                if (counter > totalImages - 1) {
+                    counter = 0; // Loop back to the first slide
+                }
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                counter--;
+                if (counter < 0) {
+                    counter = totalImages - 1; // Loop back to the last slide
+                }
+                updateCarousel();
+            }
+
+            // Auto slide functionality
+            const startSlideInterval = () => {
+                slideInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+            };
+
+            // Stop auto slide on user interaction and restart after a delay
+            const resetSlideInterval = () => {
+                clearInterval(slideInterval);
+                startSlideInterval();
+            };
+
+            // Event Listeners for buttons
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetSlideInterval();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetSlideInterval();
+            });
+
+            // Event Listeners for dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    counter = index;
+                    updateCarousel();
+                    resetSlideInterval();
+                });
+            });
+
+            // Start auto sliding when page loads
+            startSlideInterval();
+
+            // Adjust slide width on window resize
+            window.addEventListener('resize', () => {
+                // Re-calculate and apply transform when window resizes to prevent layout issues
+                updateCarousel();
+            });
+            // Initial update when DOM is fully loaded to set correct position
+            updateCarousel();
+
+            // Optional: Implement the functionality for the "three-dot" menu button
+            // const menuToggle = document.getElementById('menuToggle');
+            // menuToggle.addEventListener('click', () => {
+            //     alert('Menu button clicked! You can add a sidebar or dropdown menu here.');
+            //     // Example: Toggle a class on a sidebar element to show/hide it
+            //     // document.body.classList.toggle('sidebar-open');
+            // });
+        });
+    </script>
+</body>
+          </html>
