@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapCut প্রিমিয়াম অফারসমূহ | আপনার ডিজিটাল সলিউশন</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles & Reset - Dark Theme */
+        :root {
+            --primary-color: #00e676; /* CapCut Green/Neon Green */
+            --primary-dark: #00b0ff; /* CapCut Blue/Darker Primary */
+            --secondary-color: #212121; /* Very dark gray */
+            --bg-dark: #121212; /* Main dark background */
+            --card-bg: #1e1e1e; /* Slightly lighter dark for cards */
+            --text-light: #e0e0e0; /* Light gray for main text */
+            --text-muted: #a0a0a0; /* Muted gray for subtitles */
+            --border-color: #333333; /* Dark border color */
+            --shadow-light: rgba(0, 0, 0, 0.2);
+            --shadow-medium: rgba(0, 0, 0, 0.4);
+            --capcut-purple: #9c27b0; /* Additional CapCut color */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--secondary-color);
+            padding: 15px 25px;
+            box-shadow: 0 2px 10px var(--shadow-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .left-options,
+        .navbar .right-options {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .brand {
+            color: var(--primary-color);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+        .navbar .brand:hover {
+            color: var(--text-light);
+        }
+
+        .navbar .nav-icon-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            touch-action: manipulation;
+        }
+        .navbar .nav-icon-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--primary-color);
+        }
+
+        .navbar .login-btn {
+            background-color: var(--primary-dark);
+            color: var(--secondary-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 0.95em;
+            touch-action: manipulation;
+            white-space: nowrap;
+        }
+        .navbar .login-btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), url('https://via.placeholder.com/1600x600/121212/00e676?text=CapCut+Unleash+Creativity') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--primary-color);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.8em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+            animation: text-pop-in 1.2s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            animation: fadeIn 1.5s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons .cta-button {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin: 0 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            animation: slideInUp 1s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons .cta-button:hover {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            text-align: center;
+            flex-grow: 1;
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        /* Section Header Styles */
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+        }
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-dark);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.1em;
+            color: var(--text-muted);
+        }
+
+        /* Toggle Buttons for Monthly/Yearly */
+        .plan-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            padding: 8px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .toggle-button {
+            padding: 12px 25px;
+            font-size: 1.1em;
+            font-weight: 600;
+            background-color: transparent;
+            color: var(--text-muted);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            touch-action: manipulation;
+        }
+
+        .toggle-button.active {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .toggle-button:hover:not(.active) {
+            color: var(--text-light);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Offer Grid */
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Offer Item Card */
+        .offer-item {
+            background: linear-gradient(145deg, var(--secondary-color), #2a2a2a);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px var(--shadow-light);
+            opacity: 0; /* Hidden initially for JS animation */
+            transform: translateY(20px);
+            display: none; /* Hidden by default, shown by JS */
+        }
+
+        .offer-item.show {
+            animation: fade-in-up 0.7s ease-out forwards;
+            display: block; /* Show animated items */
+        }
+
+        .offer-item:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 15px 35px var(--shadow-medium);
+            border-color: var(--primary-color);
+        }
+
+        .offer-item .icon {
+            font-size: 3.5em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 8px var(--primary-color));
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .offer-item h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-light);
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .offer-item .features-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .offer-item .features-list li {
+            font-size: 1.05em;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .offer-item .features-list li i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .offer-item .price {
+            font-size: 2.2em;
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .offer-item .price span {
+            font-size: 0.6em;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        .offer-item .old-price {
+            font-size: 0.9em;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .offer-item .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1em;
+            touch-action: manipulation;
+            position: relative;
+            z-index: 1;
+        }
+
+        .offer-item .cta-button:hover {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Special Offer Highlight */
+        .offer-item.highlight {
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 20px var(--primary-color);
+            animation: pulse-border 2s infinite ease-in-out;
+        }
+
+        /* Key Features / Benefits Section */
+        .key-features {
+            background-color: var(--secondary-color);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 60px;
+            box-shadow: 0 8px 25px var(--shadow-medium);
+        }
+
+        .key-features h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        .key-features h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-dark);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .feature-item.show {
+            animation: fade-in-up 0.7s ease-out forwards;
+        }
+        .feature-item:nth-child(2).show { animation-delay: 0.2s; }
+        .feature-item:nth-child(3).show { animation-delay: 0.4s; }
+        .feature-item:nth-child(4).show { animation-delay: 0.6s; }
+
+
+        .feature-item i {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4em;
+            color: var(--text-light);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 0.95em;
+            color: var(--text-muted);
+        }
+
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            padding: 25px;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            text-align: center;
+            font-size: 0.95em;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer p {
+            margin: 5px 0;
+            color: var(--text-muted);
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes text-pop-in {
+            0% { opacity: 0; transform: scale(0.8); }
+            70% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 8px var(--primary-color)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 15px var(--primary-color)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 8px var(--primary-color)); }
+        }
+        @keyframes pulse-border {
+            0% { border-color: var(--primary-color); box-shadow: 0 0 20px var(--primary-color); }
+            50% { border-color: var(--primary-dark); box-shadow: 0 0 30px var(--primary-dark); }
+            100% { border-color: var(--primary-color); box-shadow: 0 0 20px var(--primary-color); }
+        }
+
+        /* Responsive Design Adjustments */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3em;
+            }
+            .hero-content p {
+                font-size: 1.1em;
+            }
+            .section-header h2 {
+                font-size: 2.2em;
+            }
+            .offer-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .offer-item h3 {
+                font-size: 1.6em;
+            }
+            .offer-item .price {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .brand {
+                font-size: 1.3em;
+                margin: 0;
+            }
+            .navbar .login-btn {
+                padding: 8px 12px;
+                font-size: 0.85em;
+            }
+            .hero-section {
+                padding: 60px 15px;
+            }
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+            .hero-content p {
+                font-size: 1em;
+            }
+            .hero-buttons .cta-button {
+                padding: 12px 20px;
+                font-size: 0.9em;
+                margin: 0 5px 15px;
+                display: block; /* Stack buttons on small screens */
+            }
+            .container {
+                padding: 20px;
+            }
+            .section-header h2 {
+                font-size: 1.8em;
+            }
+            .section-header p {
+                font-size: 0.9em;
+            }
+            .plan-toggle {
+                width: 100%;
+                margin-top: 20px;
+            }
+            .toggle-button {
+                flex-grow: 1; /* Make buttons take full width of toggle container */
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+            .offer-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+            }
+            .offer-item {
+                padding: 25px;
+            }
+            .offer-item h3 {
+                font-size: 1.4em;
+            }
+            .offer-item .features-list li {
+                font-size: 1em;
+            }
+            .offer-item .price {
+                font-size: 1.8em;
+            }
+            .key-features {
+                padding: 30px 20px;
+            }
+            .key-features h2 {
+                font-size: 1.8em;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 10px 10px;
+            }
+            .navbar .brand {
+                font-size: 1.1em;
+            }
+            .hero-section {
+                padding: 40px 10px;
+            }
+            .hero-content h1 {
+                font-size: 2em;
+            }
+            .hero-content p {
+                font-size: 0.9em;
+            }
+            .hero-buttons .cta-button {
+                padding: 10px 15px;
+                font-size: 0.85em;
+            }
+            .container {
+                padding: 15px;
+            }
+            .section-header h2 {
+                font-size: 1.6em;
+            }
+            .offer-item .icon {
+                font-size: 3em;
+            }
+            .offer-item h3 {
+                font-size: 1.2em;
+            }
+            .offer-item .price {
+                font-size: 1.6em;
+            }
+            .offer-item .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left-options">
+            <button class="nav-icon-btn" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <a href="#" class="brand">আপনার ডিজিটাল সলিউশন</a>
+        <div class="right-options">
+            <a href="#" class="login-btn">লগইন / রেজিস্টার</a>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>CapCut প্রিমিয়াম-এর সাথে আপনার ভিডিও এডিটিং-কে নতুন মাত্রা দিন!</h1>
+            <p>আমাদের এক্সক্লুসিভ অফারগুলো দিয়ে আপনার ক্রিয়েটিভিটি আনলক করুন, ওয়াটারমার্ক ছাড়া এবং আরও অনেক প্রিমিয়াম ফিচার সহ!</p>
+            <div class="hero-buttons">
+                <a href="#offers" class="cta-button">অফারসমূহ দেখুন <i class="fas fa-arrow-down"></i></a>
+                <a href="#" class="cta-button">যোগাযোগ করুন <i class="fas fa-comment-dots"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section-header">
+            <h2 id="offers">আমাদের CapCut প্রিমিয়াম অফারসমূহ</h2>
+            <p>আপনার প্রয়োজন অনুযায়ী সেরা CapCut প্রিমিয়াম প্ল্যানটি বেছে নিন এবং প্রিমিয়াম এডিটিং অভিজ্ঞতা উপভোগ করুন।</p>
+        </div>
+
+        <div class="plan-toggle">
+            <button class="toggle-button active" data-plan-type="monthly">মাসিক প্ল্যান</button>
+            <button class="toggle-button" data-plan-type="yearly">বার্ষিক প্ল্যান</button>
+        </div>
+
+        <div class="offer-grid">
+            <div class="offer-item monthly" data-plan-type="monthly">
+                <div class="icon"><i class="fas fa-fire"></i></div>
+                <h3>CapCut প্রিমিয়াম (১ মাস)</h3>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> বিজ্ঞাপন-মুক্ত এডিটিং</li>
+                    <li><i class="fas fa-check-circle"></i> ওয়াটারমার্ক রিমুভাল</li>
+                    <li><i class="fas fa-check-circle"></i> সব প্রিমিয়াম ইফেক্ট ও ফিল্টার</li>
+                    <li><i class="fas fa-check-circle"></i> ক্লাউড স্টোরেজ অ্যাক্সেস</li>
+                    <li><i class="fas fa-check-circle"></i> ফাস্ট এক্সপোর্ট</li>
+                </ul>
+                <div class="price">৳249<span>/মাস</span></div>
+                <a href="#" class="cta-button">অর্ডার করুন</a>
+            </div>
+
+            <div class="offer-item monthly highlight" data-plan-type="monthly">
+                <div class="icon"><i class="fas fa-star"></i></div>
+                <h3>CapCut প্রিমিয়াম (৩ মাস)</h3>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> **সর্বোচ্চ জনপ্রিয় অফার!**</li>
+                    <li><i class="fas fa-check-circle"></i> বিজ্ঞাপন-মুক্ত এডিটিং</li>
+                    <li><i class="fas fa-check-circle"></i> ওয়াটারমার্ক রিমুভাল</li>
+                    <li><i class="fas fa-check-circle"></i> সব প্রিমিয়াম ফিচার আনলকড</li>
+                    <li><i class="fas fa-check-circle"></i> বর্ধিত ক্লাউড স্টোরেজ</li>
+                    <li><i class="fas fa-check-circle"></i> ২৪/৭ কাস্টমার সাপোর্ট</li>
+                </ul>
+                <div class="old-price">৳747</div>
+                <div class="price">৳699<span>/৩ মাস</span></div>
+                <a href="#" class="cta-button">অর্ডার করুন</a>
+            </div>
+
+            <div class="offer-item monthly" data-plan-type="monthly">
+                <div class="icon"><i class="fas fa-bolt"></i></div>
+                <h3>CapCut প্রিমিয়াম (৭ দিন ট্রায়াল)</h3>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> CapCut প্রিমিয়াম ফিচার্স এক্সপ্লোর করুন</li>
+                    <li><i class="fas fa-check-circle"></i> সীমিত সময়ের জন্য বিনামূল্যে অ্যাক্সেস</li>
+                    <li><i class="fas fa-check-circle"></i> প্রিমিয়াম টেমপ্লেট ও ইফেক্ট ব্যবহার করুন</li>
+                    <li><i class="fas fa-check-circle"></i> কোনো ক্রেডিট কার্ডের প্রয়োজন নেই</li>
+                </ul>
+                <div class="price">৳0<span>/৭ দিন</span></div>
+                <a href="#" class="cta-button">ট্রায়াল শুরু করুন</a>
+            </div>
+
+            <div class="offer-item monthly" data-plan-type="monthly">
+                <div class="icon"><i class="fas fa-users"></i></div>
+                <h3>CapCut ফ্যামিলি প্রিমিয়াম (১ মাস)</h3>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> একসাথে ৫ জন পর্যন্ত ব্যবহারকারী</li>
+                    <li><i class="fas fa-check-circle"></i> প্রতিটি অ্যাকাউন্টে প্রিমিয়াম ফিচার</li>
+                    <li><i class="fas fa-check-circle"></i> শেয়ার্ড ক্লাউড স্টোরেজ</li>
+                    <li><i class="fas fa-check-circle"></i> ফ্যামিলি প্ল্যান সাশ্রয়ী মূল্যে</li>
+                </ul>
+                <div class="price">৳399<span>/মাস</span></div>
+                <a href="#" class="cta-button">অর্ডার করুন</a>
+            </div>
+
+            <div class="offer-item monthly" data-plan-type="monthly">
+                <div class="icon"><i class="fas fa-magic"></i></div>
+                <h3>CapCut AI টুলস অ্যাক্সেস (১ মাস)</h3>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> AI ম্যাজিক টুলস আনলক করুন</li>
+                    <li><i class="fas fa-check-circle"></i> উন্নত AI টেক্সট-টু-স্পিচ</li>
+                    <li><i class="fas fa-check-circle"></i> AI ব্যাকগ্রাউন্ড রিমুভাল</li>
+                    <li><i class="fas fa-check-circle"></i> স্মার্ট ভিডিও আপস্কেলিং</li>
+                </ul>
+                <div class="price">৳299<span>/মাস</span></div>
+                <a href="#" class="cta-button">অর্ডার করুন</a>
+            </div>
+
+            <div class="offer-item yearly" data-plan-type="yearly">
+                <div class="icon"><i class="fas fa-hand-holding-usd"></i></div>
+                <h3>CapCut প্রিমিয়াম (৬ মাস)</h3>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> সেরা সাশ্রয়ী মাসিক মূল্য</li>
+                    <li><i class="fas fa-check-circle"></i> বিজ্ঞাপন-মুক্ত ও ওয়াটারমার্ক ফ্রি</li>
+                    <li><i class="fas fa-check-circle"></i> প্রিমিয়াম ইফেক্ট ও মিউজিক লাইব্রেরি</li>
+                    <li><i class="fas fa-check-circle"></i> নিরবচ্ছিন্ন এডিটিং অভিজ্ঞতা</li>
+                    <li><i class="fas fa-check-circle"></i> ফাস্ট এক্সপোর্ট সুবিধা</li>
+                </ul>
+                <div class="old-price">৳1494</div>
+                <div class="price">৳1299<span>/৬ মাস</span></div>
+                <a href="#" class="cta-button">অর্ডার করুন</a>
+            </div>
+
+            <div class="offer-item yearly highlight" data-plan-type="yearly">
+                <div class="icon"><i class="fas fa-trophy"></i></div>
+                <h3>CapCut প্রিমিয়াম (১ বছর)</h3>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> **সবচেয়ে বেশি সাশ্রয়ী প্ল্যান!**</li>
+                    <li><i class="fas fa-check-circle"></i> পূর্ণাঙ্গ CapCut প্রিমিয়াম অ্যাক্সেস</li>
+                    <li><i class="fas fa-check-circle"></i> সকল ফিচার, বিজ্ঞাপন ও ওয়াটারমার্ক মুক্ত</li>
+                    <li><i class="fas fa-check-circle"></i> সর্বোচ্চ ক্লাউড স্টোরেজ</li>
+                    <li><i class="fas fa-check-circle"></i> ফিউচার আপডেট এবং এক্সক্লুসিভ ফিচার</li>
+                    <li><i class="fas fa-check-circle"></i> ডেডিকেটেড কাস্টমার সাপোর্ট</li>
+                </ul>
+                <div class="old-price">৳2988</div>
+                <div class="price">৳2499<span>/বছর</span></div>
+                <a href="#" class="cta-button">অর্ডার করুন</a>
+            </div>
+
+            <div class="offer-item yearly" data-plan-type="yearly">
+                <div class="icon"><i class="fas fa-chart-line"></i></div>
+                <h3>CapCut বিজনেস প্রিমিয়াম (১ বছর)</h3>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> ব্যবসার জন্য কাস্টমাইজড ফিচার</li>
+                    <li><i class="fas fa-check-circle"></i> একাধিক ব্যবহারকারী অ্যাক্সেস</li>
+                    <li><i class="fas fa-check-circle"></i> ব্র্যান্ডিং টুলস ও টিম কোলাবোরেশন</li>
+                    <li><i class="fas fa-check-circle"></i> উচ্চ ভলিউম এক্সপোর্ট সাপোর্ট</li>
+                    <li><i class="fas fa-check-circle"></i> কাস্টম ব্র্যান্ড কিট</li>
+                </ul>
+                <div class="price">৳4999<span>/বছর</span></div>
+                <a href="#" class="cta-button">অর্ডার করুন</a>
+            </div>
+
+             <div class="offer-item yearly" data-plan-type="yearly">
+                <div class="icon"><i class="fas fa-dollar-sign"></i></div>
+                <h3>CapCut এডুকেশন প্রিমিয়াম (৬ মাস)</h3>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> শিক্ষার্থীদের জন্য বিশেষ ছাড়</li>
+                    <li><i class="fas fa-check-circle"></i> ওয়াটারমার্কবিহীন ভিডিও</li>
+                    <li><i class="fas fa-check-circle"></i> সকল প্রিমিয়াম সম্পদ ব্যবহার</li>
+                    <li><i class="fas fa-check-circle"></i> ক্রিয়েটিভ প্রজেক্টের জন্য সেরা</li>
+                </ul>
+                <div class="price">৳999<span>/৬ মাস</span></div>
+                <a href="#" class="cta-button">অর্ডার করুন</a>
+            </div>
+        </div>
+
+        <div class="key-features container" style="margin-top: 60px; background-color: var(--secondary-color);">
+            <h2>কেন CapCut প্রিমিয়াম বেছে নেবেন?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-video"></i>
+                    <h3>প্রো এডিটিং টুলস</h3>
+                    <p>ট্রেন্ডিং ট্রানজিশন, ইফেক্ট, ফিল্টার, টেক্সট এবং মিউজিক লাইব্রেরি।</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>ক্রিয়েটিভ স্বাধীনতা</h3>
+                    <p>ওয়াটারমার্ক ছাড়া ভিডিও এক্সপোর্ট করুন এবং আপনার ব্র্যান্ড তৈরি করুন।</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>নিয়মিত আপডেট</h3>
+                    <p>নতুন ফিচার এবং টুলস দিয়ে সবসময় আপডেটেড থাকুন।</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-lock"></i>
+                    <h3>নিরাপদ ও নির্ভরযোগ্য</h3>
+                    <p>আমাদের মাধ্যমে প্রাপ্ত অ্যাকাউন্টগুলো ১০০% নিরাপদ এবং অফিশিয়াল।</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 আপনার ডিজিটাল সলিউশন। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p>যোগাযোগ: <a href="mailto:info@yourstore.com">info@yourstore.com</a> | <a href="tel:+8801XXXXXXXXX">+8801XXXXXXXXX</a></p>
+        <p>আমাদের সাথে যুক্ত থাকুন: 
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const offerItems = document.querySelectorAll('.offer-item');
+            const featureItems = document.querySelectorAll('.feature-item');
+            const toggleButtons = document.querySelectorAll('.toggle-button');
+
+            // --- Intersection Observer for Fade-in Animation ---
+            // This observer is for the initial fade-in and for features section.
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+
+            // --- Function to Show/Hide Plans based on Type ---
+            const showPlans = (planType) => {
+                // First, hide all offer items
+                offerItems.forEach(item => {
+                    item.style.display = 'none'; // Instantly hide
+                    item.classList.remove('show'); // Remove animation class
+                });
+
+                // Then, filter and show only the relevant items
+                const relevantItems = document.querySelectorAll(`.offer-item[data-plan-type="${planType}"]`);
+                relevantItems.forEach(item => {
+                    item.style.display = 'block'; // Show the item
+                    // Re-observe to trigger fade-in animation for newly displayed items
+                    observer.observe(item); 
+                });
+            };
+
+            // --- Initial Setup on Page Load ---
+            // Show monthly plans by default
+            showPlans('monthly');
+            // Observe the feature items for their fade-in animation
+            featureItems.forEach(item => observer.observe(item));
+
+            // --- Event Listeners for Toggle Buttons ---
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active state of toggle buttons
+                    toggleButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Get the plan type from the clicked button and show relevant plans
+                    const planType = button.dataset.planType;
+                    showPlans(planType);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
