@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>লগইন / সাইন আপ - আপনার ডিজিটাল সলিউশন</title>
+    <link href="https://fonts.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #DA1F26; /* Adobe Red */
+            --primary-dark: #B01A1F; /* Darker Adobe Red */
+            --secondary-color: #1A1A1A; /* Dark gray for deeper contrast */
+            --bg-dark: #0A0A0A; /* Main dark background */
+            --card-bg: #1F1F1F; /* Slightly lighter dark for cards */
+            --text-light: #EBEBEB; /* Light gray for main text */
+            --text-muted: #A0A0A0; /* Muted gray for subtitles */
+            --border-color: #383838; /* Dark border color */
+            --input-bg: #2A2A2A; /* Input background */
+            --placeholder-color: #6a6a6a; /* Placeholder color */
+            --shadow-light: rgba(0, 0, 0, 0.3);
+            --shadow-medium: rgba(0, 0, 0, 0.6);
+            --success-color: #28a745; /* Green for success */
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background: var(--bg-dark); /* Solid dark background */
+            color: var(--text-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .auth-container {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+            box-sizing: border-box;
+            animation: fadeInScale 0.8s ease-out;
+            border: 1px solid var(--border-color);
+        }
+
+        .auth-container h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px; /* Added margin for spacing */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.95em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--input-bg);
+            color: var(--text-light);
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box; /* Ensure padding doesn't increase width */
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(218, 31, 38, 0.3);
+        }
+
+        .form-group input::placeholder {
+            color: var(--placeholder-color);
+        }
+
+        .auth-button {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 14px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            margin-top: 10px; /* Space above button */
+        }
+
+        .auth-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .forgot-password, .auth-toggle-link {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password:hover, .auth-toggle-link:hover {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        .social-login-divider {
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.9em;
+        }
+        .social-login-divider::before,
+        .social-login-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 0 10px;
+        }
+
+        .social-buttons {
+            display: flex;
+            /* justify-content: center; /* Changed from center to flex-start */
+            justify-content: flex-start; /* Align items to the start (left) */
+            gap: 15px;
+            margin-top: 20px;
+            padding-left: 0; /* Adjust as needed to fine-tune left alignment */
+        }
+
+        .social-button {
+            background-color: var(--input-bg);
+            color: var(--text-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            width: 100%; /* Make buttons take full width within their container */
+            max-width: 200px; /* Limit max width for better appearance if not full width */
+            justify-content: flex-start; /* Align content inside button to left */
+        }
+
+        .social-button:hover {
+            background-color: #3A3A3A;
+            border-color: var(--primary-color);
+        }
+        
+        .social-button i {
+            font-size: 1.2em;
+        }
+
+        /* Hide elements by default for toggle functionality */
+        .login-section, .signup-section {
+            display: none;
+        }
+        .login-section.active, .signup-section.active {
+            display: block;
+        }
+
+        /* Animations */
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .auth-container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+            .auth-container h2 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+            .form-group input, .auth-button {
+                padding: 10px 12px;
+                font-size: 0.95em;
+            }
+            .social-buttons {
+                flex-direction: column;
+                align-items: center; /* Center align for mobile for better look */
+                padding-left: 0; /* Remove padding for mobile */
+            }
+            .social-button {
+                padding: 10px 15px;
+                width: 100%; /* Full width on mobile */
+                max-width: none; /* Remove max-width on mobile */
+                justify-content: center; /* Center content inside button on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="login-section active" id="loginSection">
+            <h2>লগইন করুন</h2>
+            <form class="auth-form" onsubmit="alert('লগইন চেষ্টা করা হচ্ছে...'); return false;">
+                <div class="form-group">
+                    <label for="loginEmail"><i class="fas fa-envelope"></i> ইমেইল:</label>
+                    <input type="email" id="loginEmail" placeholder="আপনার ইমেইল দিন" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword"><i class="fas fa-lock"></i> পাসওয়ার্ড:</label>
+                    <input type="password" id="loginPassword" placeholder="আপনার পাসওয়ার্ড দিন" required>
+                </div>
+                <button type="submit" class="auth-button">লগইন করুন</button>
+            </form>
+            <a href="#" class="forgot-password">পাসওয়ার্ড ভুলে গেছেন?</a>
+            <div class="social-login-divider">অথবা</div>
+            <div class="social-buttons">
+                <a href="#" class="social-button"><i class="fab fa-google"></i> Google দিয়ে লগইন করুন</a>
+                <a href="#" class="social-button"><i class="fab fa-facebook"></i> Facebook দিয়ে লগইন করুন</a>
+            </div>
+            <a href="#" class="auth-toggle-link" onclick="showSignup()">নতুন অ্যাকাউন্ট তৈরি করুন? **সাইন আপ করুন**</a>
+        </div>
+
+        <div class="signup-section" id="signupSection">
+            <h2>সাইন আপ করুন</h2>
+            <form class="auth-form" onsubmit="alert('সাইন আপ চেষ্টা করা হচ্ছে...'); return false;">
+                <div class="form-group">
+                    <label for="signupName"><i class="fas fa-user"></i> পুরো নাম:</label>
+                    <input type="text" id="signupName" placeholder="আপনার পুরো নাম দিন" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail"><i class="fas fa-envelope"></i> ইমেইল:</label>
+                    <input type="email" id="signupEmail" placeholder="আপনার ইমেইল দিন" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword"><i class="fas fa-lock"></i> পাসওয়ার্ড:</label>
+                    <input type="password" id="signupPassword" placeholder="একটি শক্তিশালী পাসওয়ার্ড দিন" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword"><i class="fas fa-lock"></i> পাসওয়ার্ড নিশ্চিত করুন:</label>
+                    <input type="password" id="confirmPassword" placeholder="পাসওয়ার্ড পুনরায় দিন" required>
+                </div>
+                <button type="submit" class="auth-button">সাইন আপ করুন</button>
+            </form>
+            <div class="social-login-divider">অথবা</div>
+            <div class="social-buttons">
+                <a href="#" class="social-button"><i class="fab fa-google"></i> Google দিয়ে সাইন আপ করুন</a>
+                <a href="#" class="social-button"><i class="fab fa-facebook"></i> Facebook দিয়ে সাইন আপ করুন</a>
+            </div>
+            <a href="#" class="auth-toggle-link" onclick="showLogin()">ইতিমধ্যে একটি অ্যাকাউন্ট আছে? **লগইন করুন**</a>
+        </div>
+    </div>
+
+    <script>
+        function showSignup() {
+            document.getElementById('loginSection').classList.remove('active');
+            document.getElementById('signupSection').classList.add('active');
+        }
+
+        function showLogin() {
+            document.getElementById('signupSection').classList.remove('active');
+            document.getElementById('loginSection').classList.add('active');
+        }
+
+        // Initially show login section if page loads directly
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if there's a specific hash in the URL to show signup directly
+            if (window.location.hash === '#signup') {
+                showSignup();
+            } else {
+                showLogin(); // Default to login
+            }
+        });
+    </script>
+</body>
+  </html>
