@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Adobe Creative Cloud প্রিমিয়াম অ্যাক্সেস | আপনার ডিজিটাল সলিউশন</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles & Reset - Dark Theme with Animated Gradient */
+        :root {
+            /* Adobe-inspired Gradient Colors */
+            --gradient-color-1: #FF5E5E; /* Brighter Red */
+            --gradient-color-2: #8A2BE2; /* Blue Violet */
+            --gradient-color-3: #2A2A2A; /* Dark Gray for blending */
+            --gradient-color-4: #000000; /* Black for depth */
+
+            --primary-color: #DA1F26; /* Adobe Red - for fixed elements like text, buttons */
+            --primary-dark: #B01A1F; /* Darker Adobe Red */
+            --secondary-color: #1A1A1A; /* Dark gray for deeper contrast */
+            --bg-dark: #0A0A0A; /* Main dark background - almost black */
+            --card-bg: #1F1F1F; /* Slightly lighter dark for cards */
+            --text-light: #EBEBEB; /* Light gray for main text */
+            --text-muted: #A0A0A0; /* Muted gray for subtitles */
+            --border-color: #383838; /* Dark border color */
+            --shadow-light: rgba(0, 0, 0, 0.3);
+            --shadow-medium: rgba(0, 0, 0, 0.6);
+            --accent-green: #28a745; /* Success green for potential highlights */
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            font-family: 'Open Sans', sans-serif;
+
+            /* Animated Gradient Background */
+            background: linear-gradient(270deg, var(--gradient-color-1), var(--gradient-color-2), var(--gradient-color-3), var(--gradient-color-4));
+            background-size: 800% 800%;
+            animation: gradientAnimation 15s ease infinite;
+            color: var(--text-light); /* Ensure text is readable */
+        }
+
+        /* Gradient Animation */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--secondary-color);
+            padding: 15px 25px;
+            box-shadow: 0 2px 10px var(--shadow-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .navbar .left-options,
+        .navbar .right-options {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .brand {
+            color: var(--primary-color);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            margin: 0 auto;
+            white-space: nowrap;
+        }
+        .navbar .brand:hover {
+            color: var(--text-light);
+        }
+
+        .navbar .nav-icon-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            touch-action: manipulation;
+            position: relative;
+        }
+        .navbar .nav-icon-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--primary-color);
+        }
+
+        /* Dropdown Menu for 3-dot button */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            min-width: 160px;
+            z-index: 1001;
+            padding: 10px 0;
+            text-align: left;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            color: var(--text-light);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1600x600/0A0A0A/DA1F26?text=Unleash+Your+Creativity+with+Adobe+CC') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--primary-color);
+            width: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.8em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+            animation: text-pop-in 1.2s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            animation: fadeIn 1.5s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons .cta-button {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            margin: 0 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            animation: slideInUp 1s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons .cta-button:hover {
+            background-color: var(--primary-dark);
+            color: white;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-medium);
+            text-align: center;
+            flex-grow: 1;
+            animation: fade-in-up 0.8s ease-out forwards;
+            width: calc(100% - 40px);
+            box-sizing: border-box;
+        }
+
+        /* Section Header Styles */
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+        }
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-dark);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.1em;
+            color: var(--text-muted);
+        }
+
+        /* Offer Grid */
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            padding: 0 10px;
+        }
+
+        /* Offer Item Card */
+        .offer-item {
+            background: linear-gradient(145deg, var(--secondary-color), #2A2A2A);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px var(--shadow-light);
+            opacity: 0;
+            transform: translateY(20px);
+            display: block; /* Always visible for this page */
+            box-sizing: border-box;
+        }
+
+        .offer-item.show {
+            animation: fade-in-up 0.7s ease-out forwards;
+        }
+
+        .offer-item:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 15px 35px var(--shadow-medium);
+            border-color: var(--primary-color);
+        }
+
+        .offer-item .icon {
+            font-size: 3.5em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 8px var(--primary-color));
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .offer-item h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-light);
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .offer-item .features-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .offer-item .features-list li {
+            font-size: 1.05em;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .offer-item .features-list li i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .offer-item .price {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .offer-item .price span {
+            font-size: 0.6em;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        .offer-item .old-price {
+            font-size: 0.9em;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .offer-item .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1em;
+            touch-action: manipulation;
+            position: relative;
+            z-index: 1;
+        }
+
+        .offer-item .cta-button:hover {
+            background-color: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Special Offer Highlight */
+        .offer-item.highlight {
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 20px var(--primary-color);
+            animation: pulse-border 2s infinite ease-in-out;
+        }
+
+        /* Key Features / Benefits Section */
+        .key-features {
+            background-color: var(--secondary-color);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 60px;
+            box-shadow: 0 8px 25px var(--shadow-medium);
+            width: calc(100% - 40px);
+            box-sizing: border-box;
+        }
+
+        .key-features h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        .key-features h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-dark);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            box-sizing: border-box;
+        }
+        .feature-item.show {
+            animation: fade-in-up 0.7s ease-out forwards;
+        }
+        .feature-item:nth-child(2).show { animation-delay: 0.2s; }
+        .feature-item:nth-child(3).show { animation-delay: 0.4s; }
+        .feature-item:nth-child(4).show { animation-delay: 0.6s; }
+
+        .feature-item i {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4em;
+            color: var(--text-light);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 0.95em;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            padding: 25px;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            text-align: center;
+            font-size: 0.95em;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer p {
+            margin: 5px 0;
+            color: var(--text-muted);
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes text-pop-in {
+            0% { opacity: 0; transform: scale(0.8); }
+            70% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); filter: drop-shadow(0 0 8px var(--primary-color)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 15px var(--primary-color)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 8px var(--primary-color)); }
+        }
+        @keyframes pulse-border {
+            0% { border-color: var(--primary-color); box-shadow: 0 0 20px var(--primary-color); }
+            50% { border-color: var(--primary-dark); box-shadow: 0 0 30px var(--primary-dark); }
+            100% { border-color: var(--primary-color); box-shadow: 0 0 20px var(--primary-color); }
+        }
+
+        /* Responsive Design Adjustments */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 3em;
+            }
+            .hero-content p {
+                font-size: 1.1em;
+            }
+            .section-header h2 {
+                font-size: 2.2em;
+            }
+            .offer-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .offer-item h3 {
+                font-size: 1.6em;
+            }
+            .offer-item .price {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .brand {
+                font-size: 1.3em;
+                margin: 0;
+            }
+            .hero-section {
+                padding: 60px 15px;
+            }
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+            .hero-content p {
+                font-size: 1em;
+            }
+            .hero-buttons .cta-button {
+                padding: 12px 20px;
+                font-size: 0.9em;
+                margin: 0 5px 15px;
+                display: block;
+            }
+            .container {
+                padding: 20px;
+                width: calc(100% - 30px);
+            }
+            .section-header h2 {
+                font-size: 1.8em;
+            }
+            .section-header p {
+                font-size: 0.9em;
+            }
+            .offer-grid {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+            }
+            .offer-item {
+                padding: 25px;
+            }
+            .offer-item h3 {
+                font-size: 1.4em;
+            }
+            .offer-item .features-list li {
+                font-size: 1em;
+            }
+            .offer-item .price {
+                font-size: 1.8em;
+            }
+            .key-features {
+                padding: 30px 20px;
+                width: calc(100% - 30px);
+            }
+            .key-features h2 {
+                font-size: 1.8em;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 10px 10px;
+            }
+            .navbar .brand {
+                font-size: 1.1em;
+            }
+            .hero-section {
+                padding: 40px 10px;
+            }
+            .hero-content h1 {
+                font-size: 2em;
+            }
+            .hero-content p {
+                font-size: 0.9em;
+            }
+            .hero-buttons .cta-button {
+                padding: 10px 15px;
+                font-size: 0.85em;
+            }
+            .container {
+                padding: 15px;
+                width: calc(100% - 20px);
+            }
+            .section-header h2 {
+                font-size: 1.6em;
+            }
+            .offer-item .icon {
+                font-size: 3em;
+            }
+            .offer-item h3 {
+                font-size: 1.2em;
+            }
+            .offer-item .price {
+                font-size: 1.6em;
+            }
+            .offer-item .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            .offer-grid {
+                padding: 0 10px;
+            }
+            .key-features {
+                width: calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left-options">
+            </div>
+        <a href="#" class="brand">আপনার ডিজিটাল সলিউশন</a>
+        <div class="right-options">
+            <button class="nav-icon-btn" id="menuToggle">
+                <i class="fas fa-ellipsis-v"></i> <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#">লগইন করুন</a>
+                    <a href="#">রেজিস্টার করুন</a>
+                    <a href="#">আমার অ্যাকাউন্ট</a>
+                    <a href="#">যোগাযোগ করুন</a>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>আপনার সৃজনশীলতাকে উন্মোচন করুন Adobe Creative Cloud এর সাথে</h1>
+            <p>ডিজাইন, ভিডিও এডিটিং, এবং ডিজিটাল আর্টের জন্য বিশ্বের সেরা টুলসগুলো পান।</p>
+            <div class="hero-buttons">
+                <a href="#offers" class="cta-button">সাবস্ক্রিপশন দেখুন <i class="fas fa-palette"></i></a>
+                <a href="#" class="cta-button">যোগাযোগ করুন <i class="fas fa-headset"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section-header">
+            <h2 id="offers">আমাদের Adobe Creative Cloud প্ল্যানসমূহ</h2>
+            <p>আপনার প্রয়োজন অনুযায়ী সেরা প্ল্যানটি বেছে নিন এবং আজই আপনার সৃজনশীল যাত্রা শুরু করুন।</p>
+        </div>
+
+        <div class="offer-grid">
+            <div class="offer-item highlight" data-product-type="all-apps">
+                <div class="icon"><i class="fas fa-cloud"></i></div>
+                <h3>Adobe Creative Cloud (All Apps)</h3>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> **Photoshop, Illustrator, Premiere Pro, After Effects** সহ 20+ অ্যাপ</li>
+                    <li><i class="fas fa-check-circle"></i> 100 GB ক্লাউড স্টোরেজ</li>
+                    <li><i class="fas fa-check-circle"></i> Adobe Fonts এবং Adobe Stock এর অ্যাক্সেস</li>
+                    <li><i class="fas fa-check-circle"></i> Adobe Portfolio এবং Behance</li>
+                    <li><i class="fas fa-check-circle"></i> নিয়মিত আপডেট এবং নতুন ফিচার</li>
+                    <li><i class="fas fa-check-circle"></i> জেনারেটিভ ক্রেডিট সহ Adobe Firefly</li>
+                </ul>
+                <div class="price">৳4999<span>/মাস</span></div>
+                <div class="old-price">৳5999/মাস (সাধারণ মূল্য)</div>
+                <a href="#" class="cta-button">অর্ডার করুন</a>
+            </div>
+
+            <div class="offer-item" data-product-type="photography">
+                <div class="icon"><i class="fas fa-camera-retro"></i></div>
+                <h3>Photography Plan (Photoshop + Lightroom)</h3>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> **Adobe Photoshop** (ডেস্কটপ ও আইপ্যাড)</li>
+                    <li><i class="fas fa-check-circle"></i> **Adobe Lightroom** এবং **Lightroom Classic**</li>
+                    <li><i class="fas fa-check-circle"></i> 20 GB ক্লাউড স্টোরেজ</li>
+                    <li><i class="fas fa-check-circle"></i> প্রফেশনাল ফটোগ্রাফি ওয়ার্কফ্লো</li>
+                    <li><i class="fas fa-check-circle"></i> নিয়মিত আপডেট</li>
+                </ul>
+                <div class="price">৳1299<span>/মাস</span></div>
+                <a href="#" class="cta-button">অর্ডার করুন</a>
+            </div>
+
+            <div class="offer-item" data-product-type="video">
+                <div class="icon"><i class="fas fa-video"></i></div>
+                <h3>Premiere Pro (Single App)</h3>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> প্রফেশনাল ভিডিও এডিটিং সফটওয়্যার</li>
+                    <li><i class="fas fa-check-circle"></i> 100 GB ক্লাউড স্টোরেজ</li>
+                    <li><i class="fas fa-check-circle"></i> Adobe Sensei এআই ফিচার</li>
+                    <li><i class="fas fa-check-circle"></i> সকল ভিডিও ফরম্যাট সাপোর্ট</li>
+                    <li><i class="fas fa-check-circle"></i> নিয়মিত আপডেট</li>
+                </ul>
+                <div class="price">৳1999<span>/মাস</span></div>
+                <a href="#" class="cta-button">অর্ডার করুন</a>
+            </div>
+
+            <div class="offer-item" data-product-type="design">
+                <div class="icon"><i class="fas fa-bezier-curve"></i></div>
+                <h3>Illustrator (Single App)</h3>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle"></i> ভেক্টর গ্রাফিক্স এবং ইলাস্ট্রেশন</li>
+                    <li><i class="fas fa-check-circle"></i> 100 GB ক্লাউড স্টোরেজ</li>
+                    <li><i class="fas fa-check-circle"></i> লোগো, আইকন ও গ্রাফিক্স ডিজাইন</li>
+                    <li><i class="fas fa-check-circle"></i> পিক্সেল-পারফেক্ট ডিজাইন টুলস</li>
+                    <li><i class="fas fa-check-circle"></i> নিয়মিত আপডেট</li>
+                </ul>
+                <div class="price">৳1999<span>/মাস</span></div>
+                <a href="#" class="cta-button">অর্ডার করুন</a>
+            </div>
+            
+        </div>
+
+        <div class="key-features container" style="margin-top: 60px; background-color: var(--secondary-color);">
+            <h2>কেন আমাদের থেকে Adobe Creative Cloud কিনবেন?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-award"></i>
+                    <h3>১০০% আসল ও অথোরাইজড</h3>
+                    <p>আমরা অ্যাডোবির অফিসিয়াল চ্যানেলের মাধ্যমে লাইসেন্স প্রদান করি।</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>সেরা মূল্য গ্যারান্টি</h3>
+                    <p>বাংলাদেশে সবচেয়ে প্রতিযোগিতামূলক মূল্যে প্রিমিয়াম অ্যাক্সেস পান।</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>দ্রুত সাপোর্ট ও ডেলিভারি</h3>
+                    <p>পেমেন্টের পরেই ইমেইলে আপনার অ্যাক্টিভেশন বিবরণ পেয়ে যান।</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>নিরাপদ এবং নির্ভরযোগ্য</h3>
+                    <p>আপনার অ্যাকাউন্ট সম্পূর্ণ নিরাপদ থাকবে এবং দীর্ঘমেয়াদী ব্যবহারের জন্য উপযুক্ত।</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 আপনার ডিজিটাল সলিউশন। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p>যোগাযোগ: <a href="mailto:info@yourdigitalsolution.com">info@yourdigitalsolution.com</a> | <a href="tel:+8801XXXXXXXXX">+8801XXXXXXXXX</a></p>
+        <p>আমাদের সাথে যুক্ত থাকুন:
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const offerItems = document.querySelectorAll('.offer-item');
+            const featureItems = document.querySelectorAll('.feature-item');
+            const menuToggle = document.getElementById('menuToggle');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+
+            // Observe all offer items and feature items for animation
+            offerItems.forEach(item => observer.observe(item));
+            featureItems.forEach(item => observer.observe(item));
+
+            // Dropdown menu functionality
+            menuToggle.addEventListener('click', (event) => {
+                dropdownMenu.classList.toggle('show');
+                event.stopPropagation();
+            });
+
+            // Close the dropdown if clicked outside
+            document.addEventListener('click', (event) => {
+                if (!menuToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
